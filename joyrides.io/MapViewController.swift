@@ -21,6 +21,7 @@ class MapViewController: UIViewController,
     
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
     
+    @IBOutlet var latLonStatusLabel: UILabel!
     
     var locationManager = CLLocationManager()
     
@@ -91,6 +92,8 @@ class MapViewController: UIViewController,
         
         let lat = userLocation.coordinate.latitude
         let lon = userLocation.coordinate.longitude
+        
+        latLonStatusLabel.text = "\(lat), \(lon)"
         
         print("user latitude = \(lat)")
         print("user longitude = \(lon)")
