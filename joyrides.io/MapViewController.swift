@@ -10,14 +10,55 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController,
+                         MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView!
     
+    @IBOutlet var statusBar: UILabel!
+    
+    @IBOutlet var recordButton: UIButton!
+    
+    @IBOutlet var currentlyRecordingIndicator: UIImageView!
+    
+    
     var locationManager = CLLocationManager()
     
+    var recording = false
+    
+    var lastUpdated = Date()
+    
+    @IBAction func recordButtonOnClick(_ sender: Any) {
+        statusBar.text = "Status:   Recording Drive"
+        
+        self.locationManager = CLLocationManager()
+        locationManager.delegate = self as CLLocationManagerDelegate
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if (recording) {
+            locationManager.stopUpdatingLocation()
+            print("stopped updating loc")
+            statusBar.text = "Status:   Stopped Recording"
+            recording = false
+            currentlyRecordingIndicator.isHidden = !recording
+        }
+        else {
+            locationManager.startUpdatingLocation()
+            print("Started updating loc")
+            statusBar.text = "Status:   Started Recording"
+            recording = true
+            currentlyRecordingIndicator.isHidden = !recording
+        }
+        
+        
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.showsUserLocation = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,31 +68,26 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        determineMyCurrentLocation()
     }
     
     
     func determineMyCurrentLocation() {
         self.locationManager = CLLocationManager()
-        locationManager.delegate = self
+        locationManager.delegate = self as CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
-            //locationManager.startUpdatingHeading()
+            locationManager.startUpdatingHeading()
         }
+        
+        statusBar.text = "Status:   Updated Location"
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
-        
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-        
-        manager.stopUpdatingLocation()
-        print("stopped updating location")
         
         let lat = userLocation.coordinate.latitude
         let lon = userLocation.coordinate.longitude
@@ -72,9 +108,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let annotation = MKPointAnnotation()
         
+        lastUpdated = Date()
+        
         annotation.coordinate = location
-        annotation.title = "Your Location"
-        annotation.subtitle = "This is a subtitle"
+        annotation.title = "Your Location \(lastUpdated)"
+        annotation.subtitle = "\(lat), \(lon)"
         mapView.addAnnotation(annotation)
     }
     
@@ -84,9 +122,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 }
 
-extension FirstViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         for location in locations {
             print("THIS IS THE LOCATION \(location.coordinate.latitude)")

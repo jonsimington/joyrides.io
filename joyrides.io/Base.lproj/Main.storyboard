@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Record Drive-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="joyrides_io" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="MapViewController" customModule="joyrides_io" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -24,23 +25,59 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Z8-ak-QHD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iB-Sj-cQo">
-                                <rect key="frame" x="164" y="42" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iB-Sj-cQo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" backgroundImage="tabBackground">
+                                    <color key="titleColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:   Not Recording " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXY-nd-aw9">
+                                <rect key="frame" x="16" y="32" width="359" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.58767896890640259" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="center" image="Oval" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-WU-9gi">
+                                <rect key="frame" x="132" y="493" width="111" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="n7j-xl-fLn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c0-JP-JLk">
+                                <rect key="frame" x="159" y="520" width="56" height="56"/>
+                                <state key="normal" image="Shutter "/>
+                                <connections>
+                                    <action selector="recordButtonOnClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eKT-qE-aAc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1iB-Sj-cQo" firstAttribute="trailing" secondItem="5Z8-ak-QHD" secondAttribute="trailing" id="4Fs-If-Ida"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="oHd-WU-9gi" secondAttribute="bottom" constant="14" id="7P4-KS-Dwk"/>
                             <constraint firstItem="5Z8-ak-QHD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="9UO-qp-Mrg"/>
                             <constraint firstItem="5Z8-ak-QHD" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="Ofh-XD-6MQ"/>
+                            <constraint firstItem="oHd-WU-9gi" firstAttribute="centerX" secondItem="8c0-JP-JLk" secondAttribute="centerX" id="SjF-kZ-Q8a"/>
                             <constraint firstAttribute="trailing" secondItem="5Z8-ak-QHD" secondAttribute="trailing" id="YKH-IC-DEP"/>
+                            <constraint firstItem="oHd-WU-9gi" firstAttribute="centerY" secondItem="8c0-JP-JLk" secondAttribute="centerY" id="aaV-a1-oWF"/>
+                            <constraint firstItem="HXY-nd-aw9" firstAttribute="centerY" secondItem="1iB-Sj-cQo" secondAttribute="centerY" id="b6i-5S-JPO"/>
+                            <constraint firstItem="8c0-JP-JLk" firstAttribute="centerX" secondItem="1iB-Sj-cQo" secondAttribute="centerX" id="e8o-3p-2Z8"/>
+                            <constraint firstItem="HXY-nd-aw9" firstAttribute="trailing" secondItem="1iB-Sj-cQo" secondAttribute="trailing" id="hVf-0A-J0B"/>
+                            <constraint firstItem="1iB-Sj-cQo" firstAttribute="leading" secondItem="5Z8-ak-QHD" secondAttribute="leading" id="jeb-Xy-AN8"/>
                             <constraint firstItem="5Z8-ak-QHD" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="kAQ-o9-76N"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="8c0-JP-JLk" secondAttribute="bottom" constant="42" id="s39-eT-RGX"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="1iB-Sj-cQo" secondAttribute="bottom" constant="547" id="sfa-z5-X6p"/>
+                            <constraint firstItem="HXY-nd-aw9" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="tN1-bS-opY"/>
+                            <constraint firstItem="1iB-Sj-cQo" firstAttribute="top" secondItem="5Z8-ak-QHD" secondAttribute="top" id="wXS-bj-Vnw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Record Drive" image="tab_inactive" selectedImage="tab_active" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Record Drive" image="tab_active" selectedImage="tab_active" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="currentlyRecordingIndicator" destination="oHd-WU-9gi" id="JLv-hd-KO0"/>
                         <outlet property="mapView" destination="5Z8-ak-QHD" id="FQ7-ng-S1r"/>
+                        <outlet property="recordButton" destination="8c0-JP-JLk" id="Esa-hd-Tg6"/>
+                        <outlet property="statusBar" destination="HXY-nd-aw9" id="Rir-AR-5KR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -92,10 +129,11 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabBackground" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -108,6 +146,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Oval" width="109" height="109"/>
+        <image name="Shutter " width="56" height="56"/>
+        <image name="tabBackground" width="375" height="50"/>
         <image name="tab_active" width="26" height="26"/>
         <image name="tab_inactive" width="26" height="26"/>
     </resources>

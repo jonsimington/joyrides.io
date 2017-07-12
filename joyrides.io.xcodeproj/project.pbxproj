@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FCAC32561F15FED7005E7027 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAC32551F15FED7005E7027 /* MapViewController.swift */; };
 		FCCD0E261F0F848A002B55ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD0E251F0F848A002B55ED /* AppDelegate.swift */; };
-		FCCD0E281F0F848A002B55ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD0E271F0F848A002B55ED /* FirstViewController.swift */; };
 		FCCD0E2A1F0F848A002B55ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD0E291F0F848A002B55ED /* SecondViewController.swift */; };
 		FCCD0E2D1F0F848A002B55ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCD0E2B1F0F848A002B55ED /* Main.storyboard */; };
 		FCCD0E2F1F0F848A002B55ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCD0E2E1F0F848A002B55ED /* Assets.xcassets */; };
@@ -35,9 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FCAC32551F15FED7005E7027 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FCCD0E221F0F848A002B55ED /* joyrides.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joyrides.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD0E251F0F848A002B55ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCCD0E271F0F848A002B55ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		FCCD0E291F0F848A002B55ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FCCD0E2C1F0F848A002B55ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCCD0E2E1F0F848A002B55ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		FCCD0E241F0F848A002B55ED /* joyrides.io */ = {
 			isa = PBXGroup;
 			children = (
+				FCAC32551F15FED7005E7027 /* MapViewController.swift */,
 				FCCD0E251F0F848A002B55ED /* AppDelegate.swift */,
-				FCCD0E271F0F848A002B55ED /* FirstViewController.swift */,
 				FCCD0E291F0F848A002B55ED /* SecondViewController.swift */,
 				FCCD0E2B1F0F848A002B55ED /* Main.storyboard */,
 				FCCD0E2E1F0F848A002B55ED /* Assets.xcassets */,
@@ -190,6 +190,9 @@
 		FCCD0E1A1F0F848A002B55ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = jonsimington;
@@ -266,8 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCCD0E2A1F0F848A002B55ED /* SecondViewController.swift in Sources */,
+				FCAC32561F15FED7005E7027 /* MapViewController.swift in Sources */,
 				FCCD0E261F0F848A002B55ED /* AppDelegate.swift in Sources */,
-				FCCD0E281F0F848A002B55ED /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
