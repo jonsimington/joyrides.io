@@ -9,13 +9,12 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMaps
 
 class MapViewController: UIViewController,
                          MKMapViewDelegate {
 
-    @IBOutlet var mapView: MKMapView!
-    
-    @IBOutlet var statusBar: UILabel!
+    @IBOutlet var mapView: GMSMapView!
     
     @IBOutlet var recordButton: UIButton!
     
@@ -30,7 +29,6 @@ class MapViewController: UIViewController,
     var lastUpdated = Date()
     
     @IBAction func recordButtonOnClick(_ sender: Any) {
-        statusBar.text = "Status:   Recording Drive"
         
         self.locationManager = CLLocationManager()
         locationManager.delegate = self as CLLocationManagerDelegate
@@ -40,26 +38,33 @@ class MapViewController: UIViewController,
         if (recording) {
             locationManager.stopUpdatingLocation()
             print("stopped updating loc")
-            statusBar.text = "Status:   Stopped Recording"
             recording = false
             currentlyRecordingIndicator.isHidden = !recording
         }
         else {
             locationManager.startUpdatingLocation()
             print("Started updating loc")
-            statusBar.text = "Status:   Started Recording"
             recording = true
             currentlyRecordingIndicator.isHidden = !recording
         }
-        
-        
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.showsUserLocation = true
+        // Create a GMSCameraPosition that tells the map to display the
+        // coordinate -33.86,151.20 at zoom level 6.
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
+        self.mapView = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,6 +77,8 @@ class MapViewController: UIViewController,
     }
     
     
+    
+    
     func determineMyCurrentLocation() {
         self.locationManager = CLLocationManager()
         locationManager.delegate = self as CLLocationManagerDelegate
@@ -82,8 +89,6 @@ class MapViewController: UIViewController,
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
         }
-        
-        statusBar.text = "Status:   Updated Location"
         
     }
     
@@ -105,18 +110,7 @@ class MapViewController: UIViewController,
         
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lon)
         
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-        
-        mapView.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        
-        lastUpdated = Date()
-        
-        annotation.coordinate = location
-        annotation.title = "Your Location \(lastUpdated)"
-        annotation.subtitle = "\(lat), \(lon)"
-        mapView.addAnnotation(annotation)
+        // TODO: add GMaps annotation
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
@@ -124,6 +118,8 @@ class MapViewController: UIViewController,
         print("Error \(error)")
     }
 }
+
+
 
 extension MapViewController: CLLocationManagerDelegate {
     
