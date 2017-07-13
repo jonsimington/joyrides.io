@@ -532,6 +532,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = PS325E4877;
 				INFOPLIST_FILE = joyrides.ioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrides-ioTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +548,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = PS325E4877;
 				INFOPLIST_FILE = joyrides.ioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrides-ioTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -561,6 +563,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = PS325E4877;
 				INFOPLIST_FILE = joyrides.ioUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrides-ioUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -575,6 +578,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = PS325E4877;
 				INFOPLIST_FILE = joyrides.ioUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrides-ioUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
