@@ -14,7 +14,7 @@ import GoogleMaps
 class MapViewController: UIViewController,
                          MKMapViewDelegate {
 
-    @IBOutlet var mapView: GMSMapView!
+    @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet var recordButton: UIButton!
     
@@ -54,17 +54,10 @@ class MapViewController: UIViewController,
         
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
-        self.mapView = mapView
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 38.57, longitude: -90.55, zoom: 13.0)
+        self.mapView.camera = camera
         
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
-
+        self.mapView.isMyLocationEnabled = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,6 +91,8 @@ class MapViewController: UIViewController,
         let lat = userLocation.coordinate.latitude
         let lon = userLocation.coordinate.longitude
         
+        //mapView.animate(toLocation: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        
         latLonStatusLabel.text = "\(lat), \(lon)"
         
         print("user latitude = \(lat)")
@@ -110,7 +105,10 @@ class MapViewController: UIViewController,
         
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lon)
         
-        // TODO: add GMaps annotation
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        marker.map = mapView
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
