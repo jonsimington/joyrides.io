@@ -13,7 +13,8 @@ import GoogleMaps
 
 class MapViewController: UIViewController,
                          MKMapViewDelegate,
-                         UIAlertViewDelegate {
+                         UIAlertViewDelegate,
+                         CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -22,18 +23,19 @@ class MapViewController: UIViewController,
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
     
     var locationManager = CLLocationManager()
+    var didFindMyLocation = false
     
     var recording = false
     
     var lastUpdated = Date()
     
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            mapView.isMyLocationEnabled = true
+        }
+    }
+    
     @IBAction func recordButtonOnClick(_ sender: Any) {
-        
-        self.locationManager = CLLocationManager()
-        locationManager.delegate = self as CLLocationManagerDelegate
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
         if (recording) {
             locationManager.stopUpdatingLocation()
             print("stopped updating loc")
@@ -48,13 +50,27 @@ class MapViewController: UIViewController,
         }
     }
     
+    func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, didUpdateLocations locations: [CLLocation], context: UnsafeMutableRawPointer) {
+        if !didFindMyLocation {
+            
+            mapView.settings.myLocationButton = true
+            
+            didFindMyLocation = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 38.57, longitude: -90.55, zoom: 13.0)
-        self.mapView.camera = camera
+        self.locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        // init location
+        locationManager.startUpdatingLocation()
+        sleep(2)
+        locationManager.stopUpdatingLocation()
         
         self.mapView.isMyLocationEnabled = true
     }
@@ -68,20 +84,9 @@ class MapViewController: UIViewController,
         super.viewWillAppear(animated)
     }
     
-    
-    
-    
-    func determineMyCurrentLocation() {
-        self.locationManager = CLLocationManager()
-        locationManager.delegate = self as CLLocationManagerDelegate
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-            locationManager.startUpdatingHeading()
-        }
-        
+    func determineMyCurrentLocation(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocation {
+        let myLocation: CLLocation = locations[0] as CLLocation
+        return myLocation
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -89,6 +94,8 @@ class MapViewController: UIViewController,
         
         let lat = userLocation.coordinate.latitude
         let lon = userLocation.coordinate.longitude
+        
+        mapView.camera = GMSCameraPosition.camera(withTarget: userLocation.coordinate, zoom: 13.0)
         
         print("user latitude = \(lat)")
         print("user longitude = \(lon)")
@@ -135,20 +142,6 @@ class MapViewController: UIViewController,
         actionSheet.addAction(cancelAction)
         
         show(actionSheet, sender: self)
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    
-    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        for location in locations {
-            print("THIS IS THE LOCATION \(location.coordinate.latitude)")
-        }
-        
-        // This will stop updating the location.
-        locationManager.stopUpdatingLocation()
-        print("stopped updating location in updated loc")
     }
 }
 
