@@ -69,9 +69,9 @@ class MapViewController: UIViewController,
             let stopTime = visited.last?.timestamp
             let diff = stopTime?.seconds(from: startTime)
             
-            let distTraveled = distanceInKmBetweenEarthCoordinates(loc1: visited[0], loc2: visited.last!)
+            let distTraveled = totalDistTraveledInDrive(locs: visited)
             
-            print("Gathered \(visited.count) locs in \(diff!) s and traveled \(kmToFeet(km: distTraveled)) ft")
+            print("Gathered \(visited.count) locs in \(diff!) s and traveled \(distTraveled) ft")
         }
         else {
             locationManager.startUpdatingLocation()
@@ -134,6 +134,19 @@ class MapViewController: UIViewController,
     func determineMyCurrentLocation(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocation {
         let myLocation: CLLocation = locations[0] as CLLocation
         return myLocation
+    }
+    
+    func totalDistTraveledInDrive(locs: [Loc]) -> Double {
+        var totalDist = 0.0
+        
+        for i in 1..<locs.count {
+            let dist = kmToFeet(km: distanceInKmBetweenEarthCoordinates(loc1: locs[i], loc2: locs[i-1]))
+            totalDist += dist
+        }
+        
+        print("Total Dist: \(totalDist)")
+        
+        return totalDist
     }
 
     /////////////////////////////////////////////////////////////////////////////
