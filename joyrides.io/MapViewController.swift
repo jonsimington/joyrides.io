@@ -12,15 +12,14 @@ import CoreLocation
 import GoogleMaps
 
 class MapViewController: UIViewController,
-                         MKMapViewDelegate {
+                         MKMapViewDelegate,
+                         UIAlertViewDelegate {
 
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet var recordButton: UIButton!
     
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
-    
-    @IBOutlet var latLonStatusLabel: UILabel!
     
     var locationManager = CLLocationManager()
     
@@ -91,19 +90,8 @@ class MapViewController: UIViewController,
         let lat = userLocation.coordinate.latitude
         let lon = userLocation.coordinate.longitude
         
-        //mapView.animate(toLocation: CLLocationCoordinate2D(latitude: lat, longitude: lon))
-        
-        latLonStatusLabel.text = "\(lat), \(lon)"
-        
         print("user latitude = \(lat)")
         print("user longitude = \(lon)")
-        
-        let latDelta:CLLocationDegrees = 0.01
-        let lonDelta:CLLocationDegrees = 0.01
-        
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-        
-        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lon)
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -115,9 +103,40 @@ class MapViewController: UIViewController,
     {
         print("Error \(error)")
     }
+    
+    @IBOutlet var changeMapTypeButton: UIButton!
+    @IBAction func changeMapTypeButtonOnClick(_ sender: Any) {
+        let actionSheet = UIAlertController(title: "Map Types", message: "Select map type:", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let normalMapTypeAction = UIAlertAction(title: "Normal", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.mapView.mapType = GMSMapViewType(rawValue: 1)!
+        }
+        
+        let terrainMapTypeAction = UIAlertAction(title: "Terrain", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.mapView.mapType = GMSMapViewType(rawValue: 3)!
+        }
+        
+        let hybridMapTypeAction = UIAlertAction(title: "Hybrid", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.mapView.mapType = GMSMapViewType(rawValue: 4)!
+        }
+        
+        let satelliteMapTypeAction = UIAlertAction(title: "Satellite", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.mapView.mapType = GMSMapViewType(rawValue: 2)!
+        }
+        
+        let cancelAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+            
+        }
+        
+        actionSheet.addAction(normalMapTypeAction)
+        actionSheet.addAction(terrainMapTypeAction)
+        actionSheet.addAction(hybridMapTypeAction)
+        actionSheet.addAction(satelliteMapTypeAction)
+        actionSheet.addAction(cancelAction)
+        
+        show(actionSheet, sender: self)
+    }
 }
-
-
 
 extension MapViewController: CLLocationManagerDelegate {
     
