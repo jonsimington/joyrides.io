@@ -92,43 +92,16 @@ class MapViewController: UIViewController,
     var lastUpdated = Date()
     var visited = [Loc]()
     
+    
+    /////////////////////////////////////////////////////////////////////////////
+    //
+    // Location Funcs
+    //
+    /////////////////////////////////////////////////////////////////////////////
     private func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             mapView.isMyLocationEnabled = true
         }
-    }
-    
-
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
-        // init location
-        locationManager.startUpdatingLocation()
-        sleep(2)
-        locationManager.stopUpdatingLocation()
-        
-        self.mapView.isMyLocationEnabled = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    func determineMyCurrentLocation(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocation {
-        let myLocation: CLLocation = locations[0] as CLLocation
-        return myLocation
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -156,8 +129,42 @@ class MapViewController: UIViewController,
     {
         print("Error \(error)")
     }
-    
 
+    
+    func determineMyCurrentLocation(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocation {
+        let myLocation: CLLocation = locations[0] as CLLocation
+        return myLocation
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    //
+    // View Funcs
+    //
+    /////////////////////////////////////////////////////////////////////////////
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        // init location
+        locationManager.startUpdatingLocation()
+        sleep(2)
+        locationManager.stopUpdatingLocation()
+        
+        self.mapView.isMyLocationEnabled = true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 
