@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		63017698833262EC235CAE43 /* libPods-joyrides.io.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B807276DD025C61E98BC792 /* libPods-joyrides.io.a */; };
+		DDBBBF111F19C78E003DB3D6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBBF101F19C78E003DB3D6 /* DateHelper.swift */; };
+		DDBBBF141F19CBD1003DB3D6 /* LocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBBF131F19CBD1003DB3D6 /* LocModel.swift */; };
+		DDBBBF171F19CC24003DB3D6 /* GeoLocHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBBF161F19CC24003DB3D6 /* GeoLocHelper.swift */; };
 		FCAC32561F15FED7005E7027 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAC32551F15FED7005E7027 /* MapViewController.swift */; };
 		FCCD0E261F0F848A002B55ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD0E251F0F848A002B55ED /* AppDelegate.swift */; };
 		FCCD0E2A1F0F848A002B55ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD0E291F0F848A002B55ED /* SecondViewController.swift */; };
@@ -39,6 +42,9 @@
 		2C474F7E7F2D59355C6FF7D4 /* Pods-joyrides.io.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-joyrides.io.release.xcconfig"; path = "Pods/Target Support Files/Pods-joyrides.io/Pods-joyrides.io.release.xcconfig"; sourceTree = "<group>"; };
 		7B807276DD025C61E98BC792 /* libPods-joyrides.io.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-joyrides.io.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C15CED4B26A4F2DD0314017 /* Pods-joyrides.io.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-joyrides.io.debug.xcconfig"; path = "Pods/Target Support Files/Pods-joyrides.io/Pods-joyrides.io.debug.xcconfig"; sourceTree = "<group>"; };
+		DDBBBF101F19C78E003DB3D6 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		DDBBBF131F19CBD1003DB3D6 /* LocModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocModel.swift; sourceTree = "<group>"; };
+		DDBBBF161F19CC24003DB3D6 /* GeoLocHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocHelper.swift; sourceTree = "<group>"; };
 		FCAC32551F15FED7005E7027 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FCCD0E221F0F848A002B55ED /* joyrides.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joyrides.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD0E251F0F848A002B55ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DDBBBF121F19CBC1003DB3D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDBBBF131F19CBD1003DB3D6 /* LocModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DDBBBF151F19CC04003DB3D6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDBBBF101F19C78E003DB3D6 /* DateHelper.swift */,
+				DDBBBF161F19CC24003DB3D6 /* GeoLocHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		FCCD0E191F0F848A002B55ED = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +146,8 @@
 		FCCD0E241F0F848A002B55ED /* joyrides.io */ = {
 			isa = PBXGroup;
 			children = (
+				DDBBBF151F19CC04003DB3D6 /* Helpers */,
+				DDBBBF121F19CBC1003DB3D6 /* Models */,
 				FCAC32551F15FED7005E7027 /* MapViewController.swift */,
 				FCCD0E251F0F848A002B55ED /* AppDelegate.swift */,
 				FCCD0E291F0F848A002B55ED /* SecondViewController.swift */,
@@ -345,7 +370,10 @@
 			files = (
 				FCCD0E2A1F0F848A002B55ED /* SecondViewController.swift in Sources */,
 				FCAC32561F15FED7005E7027 /* MapViewController.swift in Sources */,
+				DDBBBF111F19C78E003DB3D6 /* DateHelper.swift in Sources */,
 				FCCD0E261F0F848A002B55ED /* AppDelegate.swift in Sources */,
+				DDBBBF171F19CC24003DB3D6 /* GeoLocHelper.swift in Sources */,
+				DDBBBF141F19CBD1003DB3D6 /* LocModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
