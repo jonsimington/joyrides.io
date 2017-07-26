@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,6 +28,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8j-kr-i5o">
+                                <rect key="frame" x="16" y="102" width="343" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Axs-hn-3VX"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="orangeRoundedButton"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Drive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HyL-OP-L5s">
+                                <rect key="frame" x="16" y="98" width="343" height="49"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="center" image="Knob" translatesAutoresizingMaskIntoConstraints="NO" id="q3a-sZ-1ro">
                                 <rect key="frame" x="110" y="471" width="155" height="155"/>
                             </imageView>
@@ -61,16 +76,24 @@
                             <constraint firstItem="q3a-sZ-1ro" firstAttribute="centerX" secondItem="8c0-JP-JLk" secondAttribute="centerX" id="3V6-g9-AoV"/>
                             <constraint firstItem="Z50-1G-CDk" firstAttribute="centerY" secondItem="cdQ-lM-Wt2" secondAttribute="centerY" id="D3V-OB-uXw"/>
                             <constraint firstItem="FkQ-XE-1xn" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="DLx-5H-DBS"/>
+                            <constraint firstItem="d8j-kr-i5o" firstAttribute="top" secondItem="cdQ-lM-Wt2" secondAttribute="bottom" constant="11" id="Dgv-Gz-wK4"/>
+                            <constraint firstItem="HyL-OP-L5s" firstAttribute="baseline" secondItem="d8j-kr-i5o" secondAttribute="firstBaseline" id="ELK-IJ-bNn"/>
                             <constraint firstItem="8c0-JP-JLk" firstAttribute="centerX" secondItem="Wnh-S6-HeN" secondAttribute="centerX" id="IuZ-9t-St9"/>
+                            <constraint firstItem="d8j-kr-i5o" firstAttribute="leading" secondItem="Z50-1G-CDk" secondAttribute="leading" id="J2l-Vu-qeK"/>
                             <constraint firstItem="Wnh-S6-HeN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="LOc-JG-YBA"/>
                             <constraint firstItem="Wnh-S6-HeN" firstAttribute="bottom" secondItem="jXV-ap-EMu" secondAttribute="top" id="Qmr-4t-my0"/>
+                            <constraint firstItem="HyL-OP-L5s" firstAttribute="leading" secondItem="d8j-kr-i5o" secondAttribute="leading" id="TNr-T1-Haf"/>
                             <constraint firstItem="Z50-1G-CDk" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="V5f-T2-mnH"/>
                             <constraint firstItem="cdQ-lM-Wt2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-23" id="XS5-FI-Wts"/>
                             <constraint firstItem="FkQ-XE-1xn" firstAttribute="top" secondItem="Z50-1G-CDk" secondAttribute="top" id="XkD-Vz-eD0"/>
                             <constraint firstItem="cdQ-lM-Wt2" firstAttribute="top" secondItem="Wnh-S6-HeN" secondAttribute="top" id="Y5P-dK-5hq"/>
+                            <constraint firstItem="d8j-kr-i5o" firstAttribute="trailing" secondItem="FkQ-XE-1xn" secondAttribute="trailing" id="ZMg-AI-EiU"/>
+                            <constraint firstItem="HyL-OP-L5s" firstAttribute="centerY" secondItem="d8j-kr-i5o" secondAttribute="centerY" id="aFR-PO-ATx"/>
                             <constraint firstItem="Wnh-S6-HeN" firstAttribute="top" secondItem="N8L-2k-R3P" secondAttribute="bottom" id="fVY-DR-VUD"/>
+                            <constraint firstItem="HyL-OP-L5s" firstAttribute="trailing" secondItem="d8j-kr-i5o" secondAttribute="trailing" id="ffC-xh-Zac"/>
                             <constraint firstItem="q3a-sZ-1ro" firstAttribute="centerY" secondItem="8c0-JP-JLk" secondAttribute="centerY" id="jWE-qW-Ji9"/>
                             <constraint firstAttribute="trailing" secondItem="Wnh-S6-HeN" secondAttribute="trailing" id="oQA-5x-lnd"/>
+                            <constraint firstItem="HyL-OP-L5s" firstAttribute="top" secondItem="cdQ-lM-Wt2" secondAttribute="bottom" constant="7" id="pAt-NS-o5f"/>
                             <constraint firstItem="jXV-ap-EMu" firstAttribute="top" secondItem="8c0-JP-JLk" secondAttribute="bottom" constant="42" id="yb2-TM-lWD"/>
                             <constraint firstItem="cdQ-lM-Wt2" firstAttribute="trailing" secondItem="Wnh-S6-HeN" secondAttribute="trailing" id="zx5-tN-8g1"/>
                         </constraints>
@@ -150,6 +173,7 @@
         <image name="map pin" width="17" height="22"/>
         <image name="menu" width="30" height="22"/>
         <image name="navbarBlack" width="640" height="120"/>
+        <image name="orangeRoundedButton" width="581" height="80"/>
         <image name="tab_active" width="26" height="26"/>
         <image name="tab_inactive" width="26" height="26"/>
     </resources>
