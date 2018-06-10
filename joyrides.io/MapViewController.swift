@@ -11,6 +11,10 @@ import MapKit
 import CoreLocation
 import GoogleMaps
 
+let NUM_SECONDS_IN_MINUTE = 60.0
+let NUM_SECONDS_IN_HOUR = 3600.0
+
+
 class MapViewController: UIViewController,
                          MKMapViewDelegate,
                          UIAlertViewDelegate,
@@ -25,6 +29,19 @@ class MapViewController: UIViewController,
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
     @IBOutlet var changeMapTypeButton: UIButton!
+    @IBOutlet var driveTimerLabel: UILabel!
+    @IBOutlet var completeDriveButton: UIButton!
+    
+    @IBOutlet var currentDriveStatsContainer: UIImageView!
+    
+    //////////////////////////////////
+    //
+    // SUB VIEWS
+    //
+    //////////////////////////////////
+    @IBOutlet var driveStatsContainer: UIView!
+    
+    
     
     @IBAction func changeMapTypeButtonOnClick(_ sender: Any) {
         let actionSheet = UIAlertController(title: "Map Types", message: "Select map type:", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -59,21 +76,36 @@ class MapViewController: UIViewController,
     }
     
     @IBAction func recordButtonOnClick(_ sender: Any) {
+        // if we are recording, we should stop
         if (recording) {
+            // stop timer
+            stopTimer(driveTimer)
+            
+            // stop updating location
             locationManager.stopUpdatingLocation()
             print("stopped updating loc")
             recording = false
             currentlyRecordingIndicator.isHidden = !recording
             
+            // calculate time diff
             let startTime = visited[0].timestamp
             let stopTime = visited.last?.timestamp
             let diff = stopTime?.seconds(from: startTime)
             
+            // calculate dist traveled
             let distTraveled = totalDistTraveledInDrive(locs: visited)
             
             print("Gathered \(visited.count) locs in \(diff!) s and traveled \(distTraveled) ft")
         }
+        // else we start recording
         else {
+            // show stats container
+            driveStatsContainer.isHidden = false
+            
+            // start timer
+            startTimer(driveTimer)
+            
+            // start updating location
             locationManager.startUpdatingLocation()
             print("Started updating loc")
             recording = true
@@ -91,7 +123,9 @@ class MapViewController: UIViewController,
     var recording = false
     var lastUpdated = Date()
     var visited = [Loc]()
-    
+    var timeElapsed = 0.0
+    var driveTimer = Timer()
+    var isPlaying = false
     
     /////////////////////////////////////////////////////////////////////////////
     //
@@ -148,6 +182,122 @@ class MapViewController: UIViewController,
         
         return totalDist
     }
+    
+    func startTimer(_ sender: AnyObject) {
+        if(isPlaying) {
+            return
+        }
+        
+        driveTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+        isPlaying = true
+    }
+    
+    func stopTimer(_ sender: AnyObject) {
+        driveTimer.invalidate()
+        isPlaying = false
+    }
+    
+    func resetTimer(_ sender: AnyObject) {
+        driveTimer.invalidate()
+        isPlaying = false
+        timeElapsed = 0.0
+        driveTimerLabel.text = String(timeElapsed) + " s"
+    }
+    
+    @objc func UpdateTimer() {
+        timeElapsed = timeElapsed + 0.1
+        driveTimerLabel.text = prettyTimeDiff(seconds: timeElapsed)
+    }
+    
+    func prettyTimeDiff(seconds: Double) -> String {
+        var hasSeconds = false
+        var hasMinutes = false
+        var hasHours = false
+        
+        var hoursDiff = 0
+        var minutesDiff = 0
+        var secondsDiff = seconds
+        
+        var diffString = ""
+        
+        // check for hours first
+        if(seconds > NUM_SECONDS_IN_HOUR) {
+            hasHours = true
+            
+            let numHours = seconds / NUM_SECONDS_IN_HOUR
+            hoursDiff = Int(numHours)
+            
+            var remainderSeconds = (numHours - Double(hoursDiff)) * NUM_SECONDS_IN_HOUR
+            
+            // check if we still have minutes left
+            if(remainderSeconds >= NUM_SECONDS_IN_MINUTE) {
+                hasMinutes = true
+                let numMinutes = remainderSeconds / NUM_SECONDS_IN_MINUTE
+                minutesDiff = Int(numMinutes)
+                
+                remainderSeconds = (numMinutes - Double(minutesDiff)) * NUM_SECONDS_IN_MINUTE
+                
+                if(remainderSeconds > 0) {
+                    hasSeconds = true
+                    secondsDiff = remainderSeconds
+                }
+                else {
+                    hasSeconds = false
+                }
+            }
+        }
+        // if not hours, check for minutes
+        else if(seconds > NUM_SECONDS_IN_MINUTE) {
+            hasMinutes = true
+            
+            let numMinutes = seconds / NUM_SECONDS_IN_MINUTE
+            minutesDiff = Int(numMinutes)
+            
+            let remainderSeconds = (numMinutes - Double(minutesDiff)) * NUM_SECONDS_IN_MINUTE
+            
+            if(remainderSeconds > 0) {
+                hasSeconds = true
+                secondsDiff = remainderSeconds
+            }
+            else {
+                hasSeconds = false
+            }
+        }
+        // if not minutes, check for seconds
+        else if(seconds > 0) {
+            hasSeconds = true
+        }
+        
+        // hours, mins, seconds, or hours seconds cases
+        if(hasHours) {
+            diffString = "\(hoursDiff) h"
+            
+            if(hasMinutes) {
+                diffString += " \(minutesDiff) m"
+                
+                if(hasSeconds) {
+                    diffString += String(format: " %.01f s",secondsDiff)
+                }
+            }
+            else if(hasSeconds) {
+                diffString += String(format: " %.01f s",secondsDiff)
+            }
+        }
+        // mins, seconds case
+        else if(hasMinutes) {
+            diffString += " \(minutesDiff) m"
+            
+            if(hasSeconds) {
+                diffString += String(format: " %.01f s",secondsDiff)
+            }
+        }
+        // seconds only case
+        else if(hasSeconds) {
+            diffString += String(format: " %.01f s",secondsDiff)
+        }
+        
+        return diffString
+    }
 
     /////////////////////////////////////////////////////////////////////////////
     //
@@ -156,6 +306,12 @@ class MapViewController: UIViewController,
     /////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // complete drive button should be hidden
+        //completeDriveButton.isHidden = true
+        
+        // init timer
+        resetTimer(driveTimer)
         
         self.locationManager = CLLocationManager()
         locationManager.delegate = self
