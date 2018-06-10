@@ -26,13 +26,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8j-kr-i5o">
-                                <rect key="frame" x="16" y="250" width="343" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Complete Drive" image="orangeRoundedButton">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="center" fixedFrame="YES" image="Knob" translatesAutoresizingMaskIntoConstraints="NO" id="q3a-sZ-1ro">
                                 <rect key="frame" x="110" y="582" width="155" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,6 +57,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="map pin"/>
                             </button>
+                            <view hidden="YES" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyy-Ob-zed">
+                                <rect key="frame" x="0.0" y="219" width="375" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmf-9c-IcN">
+                                        <rect key="frame" x="8" y="-1" width="359" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="31"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                                        <state key="normal" title="COMPLETE DRIVE" backgroundImage="orangeRoundedButton">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
+                            </view>
                             <view hidden="YES" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-3M-gTj">
                                 <rect key="frame" x="0.0" y="123" width="375" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,7 +112,7 @@
                     <tabBarItem key="tabBarItem" title="Record Drive" image="tab_active" selectedImage="tab_active" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="changeMapTypeButton" destination="FkQ-XE-1xn" id="djA-nd-dlr"/>
-                        <outlet property="completeDriveButton" destination="d8j-kr-i5o" id="gDA-ef-jnr"/>
+                        <outlet property="completeDriveContainer" destination="gyy-Ob-zed" id="jHX-ul-hh7"/>
                         <outlet property="currentDriveStatsContainer" destination="IG5-rd-do3" id="PsP-Ee-nR7"/>
                         <outlet property="currentlyRecordingIndicator" destination="q3a-sZ-1ro" id="9H5-md-rBP"/>
                         <outlet property="driveStatsContainer" destination="PaS-3M-gTj" id="BO8-BI-89Z"/>
@@ -111,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.5" y="-298"/>
+            <point key="canvasLocation" x="487" y="-495"/>
         </scene>
         <!--My Drives-->
         <scene sceneID="wg7-f3-ORb">

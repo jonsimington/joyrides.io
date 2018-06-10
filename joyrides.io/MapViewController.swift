@@ -30,9 +30,8 @@ class MapViewController: UIViewController,
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
     @IBOutlet var changeMapTypeButton: UIButton!
     @IBOutlet var driveTimerLabel: UILabel!
-    @IBOutlet var completeDriveButton: UIButton!
-    
     @IBOutlet var currentDriveStatsContainer: UIImageView!
+    
     
     //////////////////////////////////
     //
@@ -40,7 +39,7 @@ class MapViewController: UIViewController,
     //
     //////////////////////////////////
     @IBOutlet var driveStatsContainer: UIView!
-    
+    @IBOutlet var completeDriveContainer: UIView!
     
     
     @IBAction func changeMapTypeButtonOnClick(_ sender: Any) {
@@ -78,6 +77,9 @@ class MapViewController: UIViewController,
     @IBAction func recordButtonOnClick(_ sender: Any) {
         // if we are recording, we should stop
         if (recording) {
+            // show complete drive button
+            completeDriveContainer.isHidden = false
+            
             // stop timer
             stopTimer(driveTimer)
             
@@ -99,6 +101,9 @@ class MapViewController: UIViewController,
         }
         // else we start recording
         else {
+            // hide complete drive container
+            completeDriveContainer.isHidden = true
+            
             // show stats container
             driveStatsContainer.isHidden = false
             
