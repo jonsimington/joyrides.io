@@ -12,10 +12,10 @@ class Loc {
     var lat = Double()
     var lon = Double()
     var timestamp = Date()
-    
-    init(lat:Double,
-         lon:Double,
-         timestamp:Date) {
+
+    init(lat: Double,
+         lon: Double,
+         timestamp: Date) {
         self.lat = lat
         self.lon = lon
         self.timestamp = timestamp
