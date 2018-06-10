@@ -30,7 +30,8 @@ class MapViewController: UIViewController,
     @IBOutlet var driveTimerLabel: UILabel!
     @IBOutlet var currentDriveStatsContainer: UIImageView!
     @IBOutlet var distanceTraveledLabel: UILabel!
-
+    @IBOutlet var hideInfoButton: UIButton!
+    
     //////////////////////////////////
     //
     // SUB VIEWS
@@ -40,6 +41,12 @@ class MapViewController: UIViewController,
     @IBOutlet var completeDriveContainer: UIView!
     @IBOutlet var distanceTraveledContainer: UIView!
 
+    @IBAction func hideInfoButtonOnClick(_ sender: Any) {
+        distanceTraveledContainer.isHidden = true
+        driveStatsContainer.isHidden = true
+        toggleHideInfoBlocksButton()
+    }
+    
     @IBAction func changeMapTypeButtonOnClick(_: Any) {
         let actionSheet = UIAlertController(title: "Map Types", message: "Select map type:", preferredStyle: UIAlertControllerStyle.actionSheet)
 
@@ -84,6 +91,10 @@ class MapViewController: UIViewController,
             distanceTraveledLabel.text = String(format: "%.01f ft", distTraveled)
             distanceTraveledContainer.isHidden = false
 
+            if driveStatsContainer.isHidden {
+                driveStatsContainer.isHidden = false
+            }
+            
             // stop timer
             stopTimer(driveTimer)
 
@@ -99,6 +110,9 @@ class MapViewController: UIViewController,
             let diff = stopTime?.seconds(from: startTime)
 
             print("Gathered \(visited.count) locs in \(diff!) s and traveled \(distTraveled) ft")
+            
+            toggleHideInfoBlocksButton()
+            
         } else {
             // hide complete drive container
             completeDriveContainer.isHidden = true
@@ -117,6 +131,20 @@ class MapViewController: UIViewController,
             print("Started updating loc")
             recording = true
             currentlyRecordingIndicator.isHidden = !recording
+            
+            toggleHideInfoBlocksButton()
+        }
+    }
+    
+    func toggleHideInfoBlocksButton() {
+        // we should show the hide info button if one or both of the info blocks are not hidden
+        let infoBlocksVisible = !driveStatsContainer.isHidden || !distanceTraveledContainer.isHidden
+        
+        if infoBlocksVisible {
+            hideInfoButton.isHidden = false
+        }
+        else {
+            hideInfoButton.isHidden = true
         }
     }
 
