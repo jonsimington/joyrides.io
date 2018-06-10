@@ -9,7 +9,7 @@
 import Foundation
 
 func degreesToRadians(degrees: Double) -> Double {
-    return degrees * M_PI / 180;
+    return degrees * Double.pi / 180;
 }
 
 func distanceInKmBetweenEarthCoordinates(loc1: Loc, loc2: Loc) -> Double {
