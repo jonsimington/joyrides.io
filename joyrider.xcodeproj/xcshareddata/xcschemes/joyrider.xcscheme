@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FCCD0E211F0F848A002B55ED"
-               BuildableName = "joyrides.io.app"
-               BlueprintName = "joyrides.io"
-               ReferencedContainer = "container:joyrides.io.xcodeproj">
+               BuildableName = "joyrider.app"
+               BlueprintName = "joyrider"
+               ReferencedContainer = "container:joyrider.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FCCD0E371F0F848A002B55ED"
-               BuildableName = "joyrides.ioTests.xctest"
-               BlueprintName = "joyrides.ioTests"
-               ReferencedContainer = "container:joyrides.io.xcodeproj">
+               BuildableName = "joyriderTests.xctest"
+               BlueprintName = "joyriderTests"
+               ReferencedContainer = "container:joyrider.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FCCD0E421F0F848A002B55ED"
-               BuildableName = "joyrides.ioUITests.xctest"
-               BlueprintName = "joyrides.ioUITests"
-               ReferencedContainer = "container:joyrides.io.xcodeproj">
+               BuildableName = "joyriderUITests.xctest"
+               BlueprintName = "joyriderUITests"
+               ReferencedContainer = "container:joyrider.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCCD0E211F0F848A002B55ED"
-            BuildableName = "joyrides.io.app"
-            BlueprintName = "joyrides.io"
-            ReferencedContainer = "container:joyrides.io.xcodeproj">
+            BuildableName = "joyrider.app"
+            BlueprintName = "joyrider"
+            ReferencedContainer = "container:joyrider.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCCD0E211F0F848A002B55ED"
-            BuildableName = "joyrides.io.app"
-            BlueprintName = "joyrides.io"
-            ReferencedContainer = "container:joyrides.io.xcodeproj">
+            BuildableName = "joyrider.app"
+            BlueprintName = "joyrider"
+            ReferencedContainer = "container:joyrider.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCCD0E211F0F848A002B55ED"
-            BuildableName = "joyrides.io.app"
-            BlueprintName = "joyrides.io"
-            ReferencedContainer = "container:joyrides.io.xcodeproj">
+            BuildableName = "joyrider.app"
+            BlueprintName = "joyrider"
+            ReferencedContainer = "container:joyrider.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

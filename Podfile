@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-target 'joyrides.io' do
+target 'joyrider' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'MZTimerLabel'
