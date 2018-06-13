@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  joyrides.io
+//  joyryde
 //
 //  Created by Jon on 7/7/17.
 //  Copyright © 2017 jonsimington. All rights reserved.
@@ -14,7 +14,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    let googleMapsAPIKey = "AIzaSyAYRPh5J2wW6kYuYjFOBUTViGfB1TwtuQE"
+    let googleMapsAPIKey = "AIzaSyDRfkfV-XYF_q4GC2SzPytaA_UkjHZ2TF4"
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

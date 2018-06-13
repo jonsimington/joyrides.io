@@ -1,6 +1,6 @@
 //
 //  SecondViewController.swift
-//  joyrides.io
+//  joyryde
 //
 //  Created by Jon on 7/7/17.
 //  Copyright © 2017 jonsimington. All rights reserved.

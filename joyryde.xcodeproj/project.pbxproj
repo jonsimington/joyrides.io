@@ -48,17 +48,17 @@
 		DDBBBF161F19CC24003DB3D6 /* GeoLocHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocHelper.swift; sourceTree = "<group>"; };
 		DDE6E57F20CDE6B400124366 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FCAC32551F15FED7005E7027 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		FCCD0E221F0F848A002B55ED /* joyrider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joyrider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCD0E221F0F848A002B55ED /* joyryde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joyryde.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD0E251F0F848A002B55ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCCD0E291F0F848A002B55ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FCCD0E2C1F0F848A002B55ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCCD0E2E1F0F848A002B55ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCCD0E311F0F848A002B55ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCCD0E331F0F848A002B55ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCCD0E381F0F848A002B55ED /* joyriderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joyriderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCD0E381F0F848A002B55ED /* joyrydeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joyrydeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD0E3C1F0F848A002B55ED /* joyriderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joyriderTests.swift; sourceTree = "<group>"; };
 		FCCD0E3E1F0F848A002B55ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCCD0E431F0F848A002B55ED /* joyriderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joyriderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCD0E431F0F848A002B55ED /* joyrydeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joyrydeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD0E471F0F848A002B55ED /* joyriderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joyriderUITests.swift; sourceTree = "<group>"; };
 		FCCD0E491F0F848A002B55ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,9 +139,9 @@
 		FCCD0E231F0F848A002B55ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCCD0E221F0F848A002B55ED /* joyrider.app */,
-				FCCD0E381F0F848A002B55ED /* joyriderTests.xctest */,
-				FCCD0E431F0F848A002B55ED /* joyriderUITests.xctest */,
+				FCCD0E221F0F848A002B55ED /* joyryde.app */,
+				FCCD0E381F0F848A002B55ED /* joyrydeTests.xctest */,
+				FCCD0E431F0F848A002B55ED /* joyrydeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FCCD0E211F0F848A002B55ED /* joyrider */ = {
+		FCCD0E211F0F848A002B55ED /* joyryde */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCCD0E4C1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrider" */;
+			buildConfigurationList = FCCD0E4C1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyryde" */;
 			buildPhases = (
 				F56FA72A69A44F4B2E4EF0F0 /* [CP] Check Pods Manifest.lock */,
 				FCCD0E1E1F0F848A002B55ED /* Sources */,
@@ -197,14 +197,14 @@
 			);
 			dependencies = (
 			);
-			name = joyrider;
+			name = joyryde;
 			productName = joyrider;
-			productReference = FCCD0E221F0F848A002B55ED /* joyrider.app */;
+			productReference = FCCD0E221F0F848A002B55ED /* joyryde.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FCCD0E371F0F848A002B55ED /* joyriderTests */ = {
+		FCCD0E371F0F848A002B55ED /* joyrydeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCCD0E4F1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyriderTests" */;
+			buildConfigurationList = FCCD0E4F1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrydeTests" */;
 			buildPhases = (
 				FCCD0E341F0F848A002B55ED /* Sources */,
 				FCCD0E351F0F848A002B55ED /* Frameworks */,
@@ -215,14 +215,14 @@
 			dependencies = (
 				FCCD0E3A1F0F848A002B55ED /* PBXTargetDependency */,
 			);
-			name = joyriderTests;
+			name = joyrydeTests;
 			productName = joyriderTests;
-			productReference = FCCD0E381F0F848A002B55ED /* joyriderTests.xctest */;
+			productReference = FCCD0E381F0F848A002B55ED /* joyrydeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FCCD0E421F0F848A002B55ED /* joyriderUITests */ = {
+		FCCD0E421F0F848A002B55ED /* joyrydeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCCD0E521F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyriderUITests" */;
+			buildConfigurationList = FCCD0E521F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrydeUITests" */;
 			buildPhases = (
 				FCCD0E3F1F0F848A002B55ED /* Sources */,
 				FCCD0E401F0F848A002B55ED /* Frameworks */,
@@ -233,9 +233,9 @@
 			dependencies = (
 				FCCD0E451F0F848A002B55ED /* PBXTargetDependency */,
 			);
-			name = joyriderUITests;
+			name = joyrydeUITests;
 			productName = joyriderUITests;
-			productReference = FCCD0E431F0F848A002B55ED /* joyriderUITests.xctest */;
+			productReference = FCCD0E431F0F848A002B55ED /* joyrydeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -273,7 +273,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FCCD0E1D1F0F848A002B55ED /* Build configuration list for PBXProject "joyrider" */;
+			buildConfigurationList = FCCD0E1D1F0F848A002B55ED /* Build configuration list for PBXProject "joyryde" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -286,9 +286,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FCCD0E211F0F848A002B55ED /* joyrider */,
-				FCCD0E371F0F848A002B55ED /* joyriderTests */,
-				FCCD0E421F0F848A002B55ED /* joyriderUITests */,
+				FCCD0E211F0F848A002B55ED /* joyryde */,
+				FCCD0E371F0F848A002B55ED /* joyrydeTests */,
+				FCCD0E421F0F848A002B55ED /* joyrydeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -397,12 +397,12 @@
 /* Begin PBXTargetDependency section */
 		FCCD0E3A1F0F848A002B55ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FCCD0E211F0F848A002B55ED /* joyrider */;
+			target = FCCD0E211F0F848A002B55ED /* joyryde */;
 			targetProxy = FCCD0E391F0F848A002B55ED /* PBXContainerItemProxy */;
 		};
 		FCCD0E451F0F848A002B55ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FCCD0E211F0F848A002B55ED /* joyrider */;
+			target = FCCD0E211F0F848A002B55ED /* joyryde */;
 			targetProxy = FCCD0E441F0F848A002B55ED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -551,9 +551,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/joyrider/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyryde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -567,9 +567,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/joyrider/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyrider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyryde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -583,11 +583,11 @@
 				INFOPLIST_FILE = joyriderTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyriderTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyriderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/joyrider.app/joyrider";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/joyryde.app/joyryde";
 			};
 			name = Debug;
 		};
@@ -600,11 +600,11 @@
 				INFOPLIST_FILE = joyriderTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyriderTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyriderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/joyrider.app/joyrider";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/joyryde.app/joyryde";
 			};
 			name = Release;
 		};
@@ -616,7 +616,7 @@
 				INFOPLIST_FILE = joyriderUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyriderUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyriderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -632,7 +632,7 @@
 				INFOPLIST_FILE = joyriderUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonsimington.joyriderUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonsimington.joyriderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -643,7 +643,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FCCD0E1D1F0F848A002B55ED /* Build configuration list for PBXProject "joyrider" */ = {
+		FCCD0E1D1F0F848A002B55ED /* Build configuration list for PBXProject "joyryde" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCCD0E4A1F0F848A002B55ED /* Debug */,
@@ -652,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCCD0E4C1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrider" */ = {
+		FCCD0E4C1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyryde" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCCD0E4D1F0F848A002B55ED /* Debug */,
@@ -661,7 +661,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCCD0E4F1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyriderTests" */ = {
+		FCCD0E4F1F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrydeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCCD0E501F0F848A002B55ED /* Debug */,
@@ -670,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCCD0E521F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyriderUITests" */ = {
+		FCCD0E521F0F848A002B55ED /* Build configuration list for PBXNativeTarget "joyrydeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCCD0E531F0F848A002B55ED /* Debug */,

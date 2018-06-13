@@ -1,6 +1,6 @@
 //
 //  FirstViewController.swift
-//  joyrides.io
+//  joyryde
 //
 //  Created by Jon on 7/7/17.
 //  Copyright © 2017 jonsimington. All rights reserved.
@@ -28,10 +28,9 @@ class MapViewController: UIViewController,
     @IBOutlet var currentlyRecordingIndicator: UIImageView!
     @IBOutlet var changeMapTypeButton: UIButton!
     @IBOutlet var driveTimerLabel: UILabel!
-    @IBOutlet var currentDriveStatsContainer: UIImageView!
     @IBOutlet var distanceTraveledLabel: UILabel!
     @IBOutlet var hideInfoButton: UIButton!
-    
+
     //////////////////////////////////
     //
     // SUB VIEWS
@@ -40,13 +39,14 @@ class MapViewController: UIViewController,
     @IBOutlet var driveStatsContainer: UIView!
     @IBOutlet var completeDriveContainer: UIView!
     @IBOutlet var distanceTraveledContainer: UIView!
+    @IBOutlet var navbarContainer: UIView!
 
     @IBAction func hideInfoButtonOnClick(_ sender: Any) {
         distanceTraveledContainer.isHidden = true
         driveStatsContainer.isHidden = true
         toggleHideInfoBlocksButton()
     }
-    
+
     @IBAction func changeMapTypeButtonOnClick(_: Any) {
         let actionSheet = UIAlertController(title: "Map Types", message: "Select map type:", preferredStyle: UIAlertControllerStyle.actionSheet)
 
@@ -94,7 +94,7 @@ class MapViewController: UIViewController,
             if driveStatsContainer.isHidden {
                 driveStatsContainer.isHidden = false
             }
-            
+
             // stop timer
             stopTimer(driveTimer)
 
@@ -110,9 +110,9 @@ class MapViewController: UIViewController,
             let diff = stopTime?.seconds(from: startTime)
 
             print("Gathered \(visited.count) locs in \(diff!) s and traveled \(distTraveled) ft")
-            
+
             toggleHideInfoBlocksButton()
-            
+
         } else {
             // hide complete drive container
             completeDriveContainer.isHidden = true
@@ -131,19 +131,18 @@ class MapViewController: UIViewController,
             print("Started updating loc")
             recording = true
             currentlyRecordingIndicator.isHidden = !recording
-            
+
             toggleHideInfoBlocksButton()
         }
     }
-    
+
     func toggleHideInfoBlocksButton() {
         // we should show the hide info button if one or both of the info blocks are not hidden
         let infoBlocksVisible = !driveStatsContainer.isHidden || !distanceTraveledContainer.isHidden
-        
+
         if infoBlocksVisible {
             hideInfoButton.isHidden = false
-        }
-        else {
+        } else {
             hideInfoButton.isHidden = true
         }
     }
@@ -242,7 +241,7 @@ class MapViewController: UIViewController,
         driveTimerLabel.text = prettyTimeDiff(seconds: timeElapsed)
     }
 
-    func prettyTimeDiff(seconds: Double) -> String {
+    @objc func prettyTimeDiff(seconds: Double) -> String {
         var hasSeconds = false
         var hasMinutes = false
         var hasHours = false
